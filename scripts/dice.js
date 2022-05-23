@@ -9,12 +9,20 @@ window.onload = (event) => {
     img2.src = "./images/dice" + y + ".png"
     
     if (x > y) {
-        document.getElementById("text").innerHTML = "PLAYER 1 WINS"
+        document.getElementById("title").innerHTML = "PLAYER 1 WINS"
+        player1.push(x)
     }
     else if (x == y) {
-        document.getElementById("text").innerHTML = "DRAW"
+        document.getElementById("title").innerHTML = "DRAW"
     }
     else{
-        document.getElementById("text").innerHTML = "PLAYER 2 WINS"
+        document.getElementById("title").innerHTML = "PLAYER 2 WINS"
+        player2.push(y)
     }
+
+    var player1 =[]
+    var player2 =[]
+    document.getElementById("text").innerHTML = "Player 1: " + player1.length +" Player 2: " + player2.length
+
+
 }
