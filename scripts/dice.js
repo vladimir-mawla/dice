@@ -32,5 +32,14 @@ window.onload = (event) => {
     } if(y == 6){
         img2.src = "./images/dice6.png";
     }
-    
+
+    if (x > y) {
+        document.getElementById("text").innerHTML = "PLAYER 1 WINS"
+    }
+    else if (x == y) {
+        document.getElementById("text").innerHTML = "DRAW"
+    }
+    else{
+        document.getElementById("text").innerHTML = "PLAYER 2 WINS"
+    }
 }
