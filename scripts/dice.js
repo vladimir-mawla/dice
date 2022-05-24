@@ -1,9 +1,9 @@
-var player1 =0
-var player2 =0
+var player1 = 0;
+var player2 = 0;
 
 window.onload = (event) => {
     throw_dice();
-
+    getScores();
 }
 
 function throw_dice() {
@@ -17,7 +17,7 @@ function throw_dice() {
     if (x > y) {
         document.getElementById("title").innerHTML = "PLAYER 1 WINS"
         player1 += 1
-        localStorage.setItem("player1", player1);
+        
     }
     else if (x == y) {
         document.getElementById("title").innerHTML = "DRAW"
@@ -25,10 +25,18 @@ function throw_dice() {
     else{
         document.getElementById("title").innerHTML = "PLAYER 2 WINS"
         player2 += 1
-        localStorage.setItem("player2", player2);
+        
     }
-
+    saveScores();
+    
     
 }
-document.getElementById("text1").innerHTML = localStorage.getItem("player1");
-document.getElementById("text2").innerHTML = localStorage.getItem("player2");
+getScores();
+function saveScores() {
+    localStorage.setItem("player1", JSON.stringify(player1));
+    localStorage.setItem("player2", JSON.stringify(player2));
+}
+function getScores() {
+    document.getElementById("text1").innerHTML = localStorage.getItem("player1");
+    document.getElementById("text2").innerHTML = localStorage.getItem("player2");
+}
